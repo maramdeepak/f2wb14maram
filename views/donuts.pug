@@ -1,0 +1,45 @@
+extends layout
+
+block content
+  h1= title
+  - 
+   let results =[
+      {
+        "donot_Name": "Choco Donot",
+        "shop": "Dunkin Donot",
+        "price": 1.29
+      },
+      {
+        "donot_Name": "Healthy Donuts",
+        "shop": "Warm Belly Donuts",
+        "price": 2
+      },
+      {
+        "donot_Name": "Cake Donuts",
+        "shop": "The Delightful Donut Shop",
+        "price": 2.79
+      },
+      {
+        "donot_Name": "Yeast Donuts",
+        "shop": "The Sugar Shack Donut Shop",
+        "price": 3.29
+      },
+      {
+        "donot_Name": "Spudnuts aka Potato Donuts",
+        "shop": "Around The Block Donut Place",
+        "price": 1.79
+      }
+    ]
+  .container-fluid 
+    .row 
+      each donot in results
+        div(class="col-sm-2" onclick=`buy(${results.indexOf(donot)})`) 
+          each value,key in donot 
+            = " " +value
+  script.
+    function buy(index){
+      alert("You purchased item "+index)
+    }
+   
+
+
